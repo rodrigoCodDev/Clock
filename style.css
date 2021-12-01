@@ -25,9 +25,12 @@ body {
     border-color: whitesmoke;
     border-width: 5px;
 
-    font-size: 50pt;
     font-family: 'Dancing Script', cursive;
     text-align: center;
+}
+
+#clock-screen {
+    font-size: 70pt;
 }
 
 #clock-buttons {
@@ -35,11 +38,11 @@ body {
     justify-content: space-between;
     
     margin-top: 40px;
-
-    font-size: 20pt;
+    font-size: 18pt;
 }
 
 .btn-box {
-    width: 10vw;
     display: table-row;
+    width: 6vw;
+    margin: 0vw 2vw;
 }
