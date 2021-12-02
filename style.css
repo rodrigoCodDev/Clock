@@ -62,6 +62,19 @@ button, input {
     font-size: 14pt;
     font-family: 'Dancing Script', cursive;
 
-    margin: 5px 10px;
-    padding: 8px;
+    margin: 5px 15px;
+    padding: 10px;
+}
+
+.click-div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px;
+}
+
+.click-text {
+    font-size: 16pt;
+    font-family: 'Dancing Script', cursive;
+    margin: 0px 20px;
 }

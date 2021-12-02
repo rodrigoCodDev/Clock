@@ -21,8 +21,12 @@ countdown.addEventListener("click", clickCountdown)
 
 function clickTimer() {
     // Add elements
+    let countdownDiv = document.createElement("div")
+    countdownDiv.classList.add("click-div")
+
     let timerClock = document.createElement("div")
     timerClock.textContent = "00:00:00"
+    timerClock.classList.add("click-text")
 
     let timerButton = document.createElement("button")
     timerButton.textContent = "Stop"
@@ -46,20 +50,25 @@ function clickTimer() {
         // Putting finish event on the button
         timerButton.textContent = "Finish"
         timerButton.addEventListener("click", () => {
-            clockScreen.removeChild(timerButton)
-            clockScreen.removeChild(timerClock)
+            countdownDiv.removeChild(timerButton)
+            countdownDiv.removeChild(timerClock)
+            clockScreen.removeChild(countdownDiv)
         })
     })
 
 
     // Append childs to clock screen
-    clockScreen.appendChild(timerClock)
-    clockScreen.appendChild(timerButton)
+    countdownDiv.appendChild(timerClock)
+    countdownDiv.appendChild(timerButton)
+    clockScreen.appendChild(countdownDiv)
 }
 
 
 function clickCountdown() {
-    // Add inputs
+    // Add elements
+    let countdownDiv = document.createElement("div")
+    countdownDiv.classList.add("click-div")
+
     let countdownInput = document.createElement("input")
     countdownInput.type = "time"
     countdownInput.step = "1"
@@ -79,12 +88,13 @@ function clickCountdown() {
         let countdownValue = countdownInput.value
 
         // Remove input elements
-        clockScreen.removeChild(countdownInput)
-        clockScreen.removeChild(countdownButton)
+        countdownDiv.removeChild(countdownInput)
+        countdownDiv.removeChild(countdownButton)
 
         // Add timer
         let countdownTimer = document.createElement("div")
         countdownTimer.textContent = countdownValue
+        countdownTimer.classList.add("click-text")
 
         // Set interval to modify countdown timer
         let interval = setInterval(() => {
@@ -98,15 +108,17 @@ function clickCountdown() {
 
             } else {
                 clearInterval(interval)
-                clockScreen.removeChild(countdownTimer)
+                countdownDiv.removeChild(countdownTimer)
+                clockScreen.removeChild(countdownDiv)
             }
         }, 1000)
 
-        clockScreen.appendChild(countdownTimer)
+        countdownDiv.appendChild(countdownTimer)
     })
 
     // Append childs to clock screen
-    clockScreen.appendChild(countdownInput)
-    clockScreen.appendChild(countdownButton)
+    countdownDiv.appendChild(countdownInput)
+    countdownDiv.appendChild(countdownButton)
+    clockScreen.appendChild(countdownDiv)
 }
 
