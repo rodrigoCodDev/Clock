@@ -27,6 +27,9 @@ function clickTimer() {
     let timerClock = document.createElement("div")
     timerClock.textContent = "00:00:00"
     timerClock.classList.add("click-text")
+    tippy(timerClock, {
+        content: "Timer"
+    })
 
     let timerButton = document.createElement("button")
     timerButton.textContent = "Stop"
@@ -95,6 +98,9 @@ function clickCountdown() {
         let countdownTimer = document.createElement("div")
         countdownTimer.textContent = countdownValue
         countdownTimer.classList.add("click-text")
+        tippy(countdownTimer, {
+            content: "Countdown timer"
+        })
 
         // Set interval to modify countdown timer
         let interval = setInterval(() => {
