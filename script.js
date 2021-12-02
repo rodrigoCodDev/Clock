@@ -1,4 +1,3 @@
-
 // DOCUMENT ELEMENTS
 
 var clock = document.getElementById("clock")
@@ -18,36 +17,49 @@ setInterval(() => {
 countdown.addEventListener("click", clickCountdown)
 
 function clickCountdown() {
-    let timerInput = document.createElement("input")
-    timerInput.type = "time"
+    let countdownInput = document.createElement("input")
+    countdownInput.type = "time"
+    countdownInput.step = "1"
 
-    let timerButton = document.createElement("button")
-    timerButton.textContent = "Confirm"
+    let countdownButton = document.createElement("button")
+    countdownButton.textContent = "Confirm"
 
-    // Click event of button
-    timerButton.addEventListener("click", () => {
-        // Get number input
-        let countdownValue = timerInput.value
-
-        // Remove input elements
-        clockScreen.removeChild(timerInput)
-        clockScreen.removeChild(timerButton)
-
-        // Add timer
-        let timerCountdown = document.createElement("div")
-        timerCountdown.textContent = countdown
-
-        setInterval(() => {
-            if (countdownValue != "00:00") {
-                let data = luxon.DateTime.fromFormat(countdownValue, "HH:mm")
-                data = data.minus({minutes: 1})
-                console.log(data.toFormat("HH:mm"))
-            }
-        }, 1000)
+    tippy(countdownInput, {
+        content: "Enter time to countdown"
     })
 
-    clockScreen.appendChild(timerInput)
-    clockScreen.appendChild(timerButton)
+    // Click event of button
+    countdownButton.addEventListener("click", () => {
+        // Get number input
+        let countdownValue = countdownInput.value
+
+        // Remove input elements
+        clockScreen.removeChild(countdownInput)
+        clockScreen.removeChild(countdownButton)
+
+        // Add timer
+        let countdownTimer = document.createElement("div")
+        countdownTimer.textContent = countdownValue
+
+        let interval = setInterval(() => {
+            // Get number input
+            countdownValue = countdownTimer.textContent
+
+            if (countdownValue != "00:00:00") {
+                let data = luxon.DateTime.fromFormat(countdownValue, "HH:mm:ss")
+                data = data.minus({seconds: 1})
+                countdownTimer.textContent = data.toFormat("HH:mm:ss")
+            } else {
+                clearInterval(interval)
+                clockScreen.removeChild(countdownTimer)
+            }
+        }, 1000)
+
+        clockScreen.appendChild(countdownTimer)
+    })
+
+    clockScreen.appendChild(countdownInput)
+    clockScreen.appendChild(countdownButton)
 
     // let timerNumber = document.createElement("div")
     // clock.appendChild(timerNumber)
