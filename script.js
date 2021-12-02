@@ -20,13 +20,13 @@ countdown.addEventListener("click", clickCountdown)
 // CLICK FUNCTIONS
 
 function clickTimer() {
+    // Add elements
     let timerClock = document.createElement("div")
     timerClock.textContent = "00:00:00"
 
     let timerButton = document.createElement("button")
     timerButton.textContent = "Stop"
 
-    console.log(timerClock.textContent)
 
     // Set interval to modify timer
     let interval = setInterval(() => {
@@ -63,6 +63,7 @@ function clickCountdown() {
     let countdownInput = document.createElement("input")
     countdownInput.type = "time"
     countdownInput.step = "1"
+    countdownInput.value = "00:00:00"
 
     let countdownButton = document.createElement("button")
     countdownButton.textContent = "Confirm"

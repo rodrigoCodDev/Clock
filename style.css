@@ -46,3 +46,22 @@ body {
     width: 6vw;
     margin: 0vw 2vw;
 }
+
+button {
+    cursor: pointer;
+}
+
+button, input {
+    border-style: double;
+    border-width: 4px;
+    border-radius: 8px;
+
+    color: white;
+    background-color: transparent;
+
+    font-size: 14pt;
+    font-family: 'Dancing Script', cursive;
+
+    margin: 5px 10px;
+    padding: 8px;
+}
