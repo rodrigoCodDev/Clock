@@ -167,6 +167,14 @@ function clickAlarm() {
             alarmList = addAlarm(alarmList, alarmValue)
             clockScreen.appendChild(alarmList)
 
+            let interval = setInterval(() => {
+                let currentAlarm = checkAlarms()
+
+                if (currentAlarm != undefined)
+                    alarmItem(alarmList, interval, currentAlarm)
+                
+            }, 1000)
+
         } else {
             alarmList = addAlarm(alarmList, alarmValue)
         }
@@ -181,7 +189,30 @@ function clickAlarm() {
 function addAlarm(list, value) {
     let alarm = document.createElement("div")
     alarm.textContent = value
+    alarm.classList.add("alarm-item")
 
     list.appendChild(alarm)
     return list
+}
+
+function checkAlarms() {
+    let alarmList= document.getElementById("alarm-list")
+    let alarms = alarmList.getElementsByClassName("alarm-item")
+
+    for (let alarmItem of alarms)
+        if (alarmItem.textContent == clock.textContent)
+            return alarmItem
+    
+    return null
+}
+
+function alarmItem(list, interval, currentAlarm) {
+    list.removeChild(currentAlarm)
+
+    let alarms = document.getElementsByClassName("alarm-item")
+
+    if (alarms.length == 0) {
+        clockScreen.removeChild(list)
+        clearInterval(interval)
+    }
 }
