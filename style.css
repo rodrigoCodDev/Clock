@@ -16,7 +16,7 @@ body {
     padding: 40px 10px;
     align-items: center;
     justify-content: center;
-    
+
     color: rgb(235, 235, 235);
     background-color: darkcyan;
     
@@ -29,7 +29,18 @@ body {
     text-align: center;
 }
 
+#clock {
+    padding-bottom: 20px;
+}
+
 #clock-screen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    margin: 0%;
+    padding: 0%;
     font-size: 70pt;
 }
 
@@ -64,13 +75,13 @@ button, input {
 
     margin: 5px 15px;
     padding: 10px;
+    margin: 20px 10px 0px 0px;
 }
 
 .click-div {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 20px;
 }
 
 .click-text {
@@ -78,3 +89,30 @@ button, input {
     font-family: 'Dancing Script', cursive;
     margin: 0px 20px;
 }
+
+#alarm-list {
+    display: flex;
+    max-width: 60%;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+
+    padding: 10px;
+
+    border-style: double;
+    border-width: 4px;
+    border-radius: 8px;
+
+    color: white;
+    text-align: center;
+    font-size: 16pt;
+    font-family: 'Dancing Script', cursive;
+}
+
+#alarm-list div {
+    padding: 5px 10px;
+}
+
