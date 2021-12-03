@@ -15,6 +15,7 @@ setInterval(() => {
 
 timer.addEventListener("click", clickTimer)
 countdown.addEventListener("click", clickCountdown)
+alarm.addEventListener("click", clickAlarm)
 
 
 // CLICK FUNCTIONS
@@ -128,3 +129,59 @@ function clickCountdown() {
     clockScreen.appendChild(countdownDiv)
 }
 
+
+function clickAlarm() {
+    // Add elements
+    let alarmDiv = document.createElement("div")
+    alarmDiv.classList.add("click-div")
+
+    let alarmInput = document.createElement("input")
+    alarmInput.type = "time"
+    alarmInput.value = "00:00"
+
+    let alarmButton = document.createElement("button")
+    alarmButton.textContent = "Confirm"
+
+    // Add input description
+    tippy(alarmInput, {
+        content: "Enter time to alarm"
+    })
+
+    // Click event of button
+    alarmButton.addEventListener("click", () => {
+        // Get number input
+        let alarmValue = alarmInput.value
+
+        // Remove input elements
+        alarmDiv.removeChild(alarmInput)
+        alarmDiv.removeChild(alarmButton)
+
+        let alarmList= document.getElementById("alarm-list")
+        let listExist = document.contains(alarmList)
+
+        if (!listExist) {
+            // List of alarms
+            alarmList = document.createElement("div")
+            alarmList.id = "alarm-list"
+            
+            alarmList = addAlarm(alarmList, alarmValue)
+            clockScreen.appendChild(alarmList)
+
+        } else {
+            alarmList = addAlarm(alarmList, alarmValue)
+        }
+    })
+
+    // Append childs to clock screen
+    alarmDiv.appendChild(alarmInput)
+    alarmDiv.appendChild(alarmButton)
+    clockScreen.appendChild(alarmDiv)
+}
+
+function addAlarm(list, value) {
+    let alarm = document.createElement("div")
+    alarm.textContent = value
+
+    list.appendChild(alarm)
+    return list
+}
