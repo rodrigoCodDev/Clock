@@ -80,18 +80,19 @@ button, input {
 
 .click-div {
     display: flex;
-    align-items: center;
+    align-items: baseline;
     justify-content: center;
 }
 
 .click-text {
     font-size: 16pt;
     font-family: 'Dancing Script', cursive;
-    margin: 0px 20px;
+    margin: 20px;
 }
 
 #alarm-list {
     display: flex;
+    min-width: 40%;
     max-width: 60%;
     flex-direction: row;
     flex-wrap: wrap;
