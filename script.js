@@ -7,6 +7,7 @@ var timer = document.getElementById("timer")
 var countdown = document.getElementById("countdown")
 var alarm = document.getElementById("alarm")
 
+const song = new Audio('./sound/alarm.mp3')
 
 // FUNCTIONS
 setInterval(() => {
@@ -114,6 +115,7 @@ function clickCountdown() {
                 countdownTimer.textContent = time.toFormat("HH:mm:ss")
 
             } else {
+                song.play()
                 clearInterval(interval)
                 countdownDiv.removeChild(countdownTimer)
                 clockScreen.removeChild(countdownDiv)
