@@ -172,8 +172,10 @@ function clickAlarm() {
             let interval = setInterval(() => {
                 let currentAlarm = checkAlarms()
 
-                if (currentAlarm != undefined)
+                if (currentAlarm != undefined){
+                    song.play()
                     alarmItem(alarmList, interval, currentAlarm)
+                }
                 
             }, 1000)
 
