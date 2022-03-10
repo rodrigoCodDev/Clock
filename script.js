@@ -1,5 +1,4 @@
 // DOCUMENT ELEMENTS
-
 var clock = document.getElementById("clock")
 var clockScreen = document.getElementById("clock-screen")
 
