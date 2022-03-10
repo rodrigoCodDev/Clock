@@ -81,13 +81,13 @@ button, input {
     margin: 20px 10px 0px 0px;
 }
 
-.click-div {
+.function-screen {
     display: flex;
     align-items: baseline;
     justify-content: center;
 }
 
-.click-text {
+.function-text {
     font-size: 16pt;
     font-family: 'Dancing Script', cursive;
     margin: 20px;
